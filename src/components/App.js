@@ -8,6 +8,7 @@ import NavbarComponent from "./NavBarComponent";
 import { Navbar } from "react-bootstrap";
 import Body from "./Body";
 import InputField from "./InputFields";
+import DemoFooter from "./DemoFooter";
 
 class App extends Component {
   // component will mount
@@ -129,7 +130,17 @@ class App extends Component {
         <br></br>
 
         {this.state.loading ? (
-          <div className="container-fluid">loading....</div>
+          <div className="d-flex justify-content-center">
+            <div className="spinner-border" role="status">
+              <span className="sr-only">Loading...</span>
+            </div>
+
+            <br/>
+            <br/>
+            <br/>
+          
+          </div>
+          
         ) : (
           <Body />
         )}
@@ -137,8 +148,10 @@ class App extends Component {
         <InputField
           createProduct={this.createProduct}
           products={this.state.products}
-          purchaseProduct = {this.purchaseProduct} 
+          purchaseProduct={this.purchaseProduct}
         />
+
+        <DemoFooter />
       </div>
     );
   }
